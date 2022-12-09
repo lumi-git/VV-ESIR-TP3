@@ -40,3 +40,43 @@ Use the following steps to design the test suite:
 Use the project in [tp3-heap](../code/tp3-heap) to complete this exercise.
 
 ## Answer
+
+1 - principals cases :
+
+- adding a null attribut
+
+- getting with an empty heap 
+
+- adding with a full heap
+
+-  getting with a normal heap
+
+- adding with normal heal
+
+- count the elements in the heap
+
+|  Cas                                                        |     Input               |  Output    |
+ |:-----------------------------------------------------------:|:-----------------------:|:----------:|
+ | testPush                                       |     push 3 values          | count = 3 | 
+ | testCount                      | push 3 elements               | count = 3 |
+ | testHeapifyUp                          | push 200 positif and negativ value              | count =200  |
+ | testPeak                | push 3 elements              | 1 |
+
+
+
+
+2 - coverage with eclipse 
+
+To do this, we just implemented tests that will pass to a way unpassed by others tests, in a way to increment  Line coverage
+
+
+
+3 - logic coverage
+
+in the class, we have no condition with 2 or more boolean 
+
+wo the logic test hasn't to be done
+
+
+4)
+![](HeapPIT.png)DatePIT

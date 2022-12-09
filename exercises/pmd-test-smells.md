@@ -14,4 +14,29 @@ Discuss the test smell you found with the help of PMD and propose here an improv
 Include the improved test code in this file.
 
 ## Answer
+In commons-math with JUnitAssertionsShouldIncludeMessage :
 
+```
+/.../commons-math/commons-math-transform/src/test/java/org/apache/commons/math4/transform/FastHadamardTransformerTest.java:119:	JUnitAssertionsShouldIncludeMessage:	JUnit assertions should include a message
+```
+
+code :
+```java
+private void checkInverseDoubleTransform(int[]x, int[] y) {
+        // Initiate the transformer
+        final FastHadamardTransform transformer = new FastHadamardTransform(true);
+
+        // check double transform
+        final double[] dY = new double[y.length];
+        for (int i = 0; i < dY.length; ++i) {
+            dY[i] = y[i];
+        }
+        final double[] dResult = transformer.apply(dY);
+        for (int i = 0; i < dResult.length; i++) {
+            // compare computed results to precomputed results
+            Assert.assertTrue(Precision.equals(x[i], dResult[i], 1));
+        }
+    }
+```
+
+Besoin d'un message avec l'assertion.

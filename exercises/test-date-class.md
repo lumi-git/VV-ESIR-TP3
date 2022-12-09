@@ -52,4 +52,53 @@ Use the following steps to design the test suite:
 Use the project in [tp3-date](../code/tp3-date) to complete this exercise.
 
 ## Answer
+1) 
+ |  Cas                                                               |     Input               |  Output    |
+ |:------------------------------------------------------------------:|:-----------------------:|:----------:|
+ | nextDate end of the year                                           | 31/12/2017              | 01/01/2018 |
+ | nextDate end of month 31 (1,3,5,7,8,10)                            | 31/01/2017              | 01/02/2017 |
+ | nextDate end of month 30 (4,6,9,11)                                | 30/04/2017              | 01/05/2017 |
+ | nextDate end of month 29 (2 in NotLeapYear)                        | 29/02/2017              | 01/02/2017 |
+ | nextDate end of month 28 (2 in LeapYear)                           | 28/02/2016              | 01/02/2016 |
+ | nextDate invalid date                                              | 45/02/2016              | null       |
+ | PreviousDate beginning of year                                     | 01/01/2017              | 31/12/2016 |
+ | PreviousDate beginning of month before one of 31 (2,4,6,8,9,11)    | 01/02/2017              | 31/01/2017 |
+ | PreviousDate beginning of month before one of 30 (5,7,10,12)       | 01/05/2017              | 30/04/2017 |
+ | PreviousDate beginning of month before one of 29 (3 in NotLeapYear)| 01/03/2017              | 29/02/2017 |
+ | PreviousDate beginning of month before one of 28 (2 in LeapYear)   | 01/03/2016              | 28/02/2016 |
+ | PreviousDate invalid date                                          | 45/02/2016              | null       |
+ | D1 < D2  different year                                            | 01/01/2017 ? 01/01/2018 | -1         |
+ | D2 < D1  different year                                            | 01/01/2018 ? 01/01/2017 |  1         |
+ | D1 < D2  different months                                          | 01/01/2017 ? 01/02/2017 | -1         |
+ | D2 < D1  different months                                          | 01/02/2017 ? 01/01/2017 |  1         |
+ | D1 < D2  different day                                             | 01/01/2017 ? 02/01/2017 | -1         |
+ | D2 < D1  different day                                             | 02/01/2017 ? 01/01/2017 |  1         |
+ | D1 == D2                                                           | 01/01/2017 ? 01/01/2017 |  0         |
+ | isLeapYear                                                         | 2016                    | True       |
+ | isNotLeapYear                                                      | 2017                    | False      |
+ | D1 == D2 equals                                                    | 01/01/2016 ? 01/01/2016 | True       |
+ | D1 != D2 equals (not the right day)                                | 01/01/2016 ? 02/01/2016 | False      |
+ | D1 != D2 equals (not the right month)                              | 01/01/2016 ? 01/02/2016 | False      |
+ | D1 != D2 equals (not the right year)                               | 01/01/2016 ? 01/01/2017 | False      |
+ | D1 == D1 equals (same object)                                      | 01/01/2016 ? 01/01/2016 | true       |
+ | D1 == null equals                                                  | 01/01/2016 ? null       | false      |
+ | D1 == 9 equals  (not the same type of object)                      | 01/01/2016 ? 6          | false      |
+ | Invalid date (day < 1)                                             | 00/01/2016              | false      |
+ | Invalid date (day > 32)                                            | 00/01/2016              | false      |
+ | Invalid date (month < 1)                                           | 01/00/2016              | false      |
+ | Invalid date (month > 12)                                          | 01/13/2016              | false      |
+ | Invalid date (year < 0)                                            | 01/01/-500              | false      |
+ | Invalid date (month = 12, day > 28, LeapYear)                      | 01/13/2016              | false      |
+ | Invalid date (month= = 2, day > 29, NotLeapYear)                   | 29/2/2017               | false      |
+ | Valid date (month = 2, day < 29, NotLeapYear)                      | 28/2/2017               | True       |
+ | Invalid date (month = 2, day > 29, LeapYear)                       | 30/2/2016               | false      |
+ | Valid date (month = 2, 0 day < 30, LeapYear)                       | 29/2/2016               | True       |
+ | Invalid date (month = (4, 6, 9, 11), day > 30)                     | 31/6/2016               | false      |
+ | Valid date (month = (4, 6, 9, 11), day < 31)                       | 30/2/2016               | True       |
+ | Invalid date (month = (1, 3, 5, 7, 8, 10 ,12), day > 31)           | 32/5/2016               | false      |
+ | Valid date (month = (1, 3, 5, 7, 8, 10 ,12), day < 32)             | 31/5/2016               | True       |
 
+2) Evaluation approx. 90%.
+3) Each test was made in such a way that only one value changes in the predica with several boolean values
+4)
+![](DatePIT.png)

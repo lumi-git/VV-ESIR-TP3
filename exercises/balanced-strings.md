@@ -26,3 +26,46 @@ Use the project in [tp3-balanced-strings](../code/tp3-balanced-strings) to compl
 
 ## Answer
 
+1 - principals cases :
+
+- a void string 
+
+- a only text string
+
+- not the good order of brackets
+
+- no enclosed parenthesis
+
+
+2 - coverage with eclipse (pass everywhere in the function)
+class test used can be found at :
+> code/tp3-balanced-strings/src/test/java/fr/istic/vv/StringUtilsTest?java
+
+to do this, we just implemented tests that will pass to a way unpassed by others tests, in a way to increment coverage
+
+the test class bellow, cover 100% of the code according to the statment coverage
+
+
+
+3 - logic coverage
+
+the only statment concerned in our methode is :
+
+```java
+if (l == '(' || l == '{' || l == '[') 
+```
+
+we have only 4 cases to test to have all cases of this methode :
+
+
+> l = '('
+or
+l = '{'
+or
+l = '['
+
+
+4 - 
+
+
+

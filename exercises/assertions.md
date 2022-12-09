@@ -11,3 +11,60 @@ Answer the following questions:
 4. In JUnit 4, an exception was expected using the `@Test` annotation, while in JUnit 5 there is a special assertion method `assertThrows`. In your opinion, what are the advantages of this new way of checking expected exceptions?
 
 ## Answer
+
+1)
+```java
+assertEquals(3 * .4, 1.2);
+```
+
+2)
+
+here an example where the result will be identical
+
+```java
+
+// Work
+int a = 5, b = 4;
+// a.equals(b)
+assertEquals(a,b); // pass
+
+// if(a == b)
+assertSame(a, b); // pass
+
+```
+
+
+here an example where the result will be different
+
+```java
+
+// Don't Work
+float a = 3*.4, b = 1.2;
+// a.equals(b)
+assertEquals(a,b); // will pass
+
+// if(a == b)
+assertSame(a, b); // THIS TEST WILL FAIL
+
+```
+
+3)
+
+another use of fail can be testing a flow command 
+
+```java
+@Test
+public void testingCondition() {
+    int result = randomInteger();
+    if(result > Integer.MAX_VALUE) {
+        fail("Result cannot exceed integer max value");
+    }
+    // more testing code
+}
+```
+
+this code verify if you pass in a particular flow command
+
+4)
+assertThrows() -> test multiple exceptions within the same test and handle lambdas function.
+
